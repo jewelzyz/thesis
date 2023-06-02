@@ -1,0 +1,204 @@
+<html>
+
+<head>
+    <title>Language Experiment</title>
+	<!--JS-->
+  <!-- external general utilities -->
+  <script src="shared/jquery-1.11.1.min.js"></script>
+  <script src="shared/full-projects/jquery-ui/jquery-ui.min.js"></script>
+  <script src="shared/underscore-min.js"></script>
+
+  <!-- experiment logic -->
+  <script src="shared/exp.js"></script>
+  <script src="shared/stream.js"></script>
+
+  <!-- utilities to submit data to proliferate -->
+  <script src="https://proliferate.alps.science/static/js/proliferate.js"></script>
+
+  <!-- general utilities -->
+  <script src="shared/browserCheck.js"></script>
+  <script src="shared/utils.js"></script>
+  <link href="shared/full-projects/jquery-ui/jquery-ui.min.css" rel="stylesheet" type="text/css">
+  <link href="shared/cocolab-style.css" rel="stylesheet" type="text/css">
+  <link href="css/local-style.css" rel="stylesheet" type="text/css">
+
+
+    <!-- experiment file -->
+    <script type="text/javascript">
+      var CONDITION = 1;
+    </script>
+    <script src="experiment.js"></script>
+
+</head>
+<!-- instructions -->
+<body onload="init()">
+<div style="text-align: center;" height="30">
+	<p> Progress: </p>
+  <progress id="progress" value="0" max="100"></progress>
+</div>
+
+  <div class="slide" id="i0">
+    <p> Thank you for participating in our survey. In the survey, we will ask for your judgments about what kind of freedom a text exhibits: </p>
+	<p> You will provide judgments about two varieties of freedom: </p>
+
+	<p> <strong> Opportunity freedom: </strong> You can call yourself free if you have the ability to achieve your goals and fulfill your potential. This involves having access to the resources and opportunities that you need in order to develop and grow. </p>
+
+	<p> <strong> Obstacle freedom: </strong> You can also call yourself free if you aren’t constrained by obstacles or another’s interference. This involves acting without coercion or oppression. </p>
+
+	<button onclick="exp.go()" class="next">Continue </button>
+
+  </div>
+
+<div class="slide" id="legal">
+      	<strong>LEGAL INFORMATION</strong>:
+      	<p> We invite you to participate in a research study on language production and comprehension. Your experimenter will ask you to do a linguistic task such as reading sentences or words, naming pictures or describing scenes, making up sentences of your own, or participating in a simple language game. You may also be asked to complete a short personality test. </p>
+	<p> There are no risks or benefits of any kind involved in this study.</p>
+
+	<p> If you have read this form and have decided to participate in this experiment, please understand your participation is voluntary and you have the right to withdraw your consent or discontinue participation at any time without penalty or loss of benefits to which you are otherwise entitled. You have the right to refuse to do particular tasks. Your individual privacy will be maintained in all published and written dataresulting from the study. You may print this form for your records. </p>
+	<p></p>
+	<p> <strong> CONTACT INFORMATION</strong>: </p>
+	<p> If you have any questions, concerns or complaints about this study, its procedures, risks and benefits, you should contact Julia Meltzer at (917)-842-6217. </p>
+    	<p> If you are not satisfied with how this study is being conducted, or if you have any concerns, complaints, or general questions about the research or your rights as a participant, please contact the Stanford Institutional Review Board (IRB) to speak to someone independent of the research team at (650)-723-2480 or toll free at 1-866-680-2906. You can also write to the Stanford IRB, Stanford University, 3000 El Camino Real, Five Palo Alto Square, 4th Floor, Palo Alto, CA 94306 USA. </p>
+      	<p> If you agree to participate, please proceed to the study tasks. </p>
+    	<button onclick="exp.go()" class="next">Continue </button>
+
+</div>
+
+
+<div class="slide" id="instructions">
+
+	<h3>Instructions</h3>
+    	<p>You will be presented with a series of quotations which end mid-sentence. Your first task is to type a few words of what may follow to complete the sentence or phrase. If you come up with several options, choose any that seem natural.
+    	<p> </p>
+      	<p> Then, your second task will be to assess whether the resulting text is an example of <strong>opportunity freedom </strong>or <strong>obstacle freedom</strong>. If you believe the phrase to be neither or both types of freedom apply, please select <strong> Neither or Both </strong>. </p>
+    	<p> </p>
+    	<p> Content warning: the texts below are randomly sampled online quotations from 2012. Feel free to skip quotations that may contain language you find objectionable.  </p>
+    	<p>Let's start with an example!</p>
+    	<button onclick="exp.go()" class="next">Continue </button>
+</div>
+
+  <div class="slide" id="example">
+    <h3>Example</h3>
+	<p> <strong> Please type the 2-4 words that most naturally follow the quotation below. </strong> </p>
+    	<p> "I let the dog off leash and he..." </p>
+
+      <textarea id="example_answer" rows="1" cols="25"></textarea><br>
+      <button onclick="show_buttons()">Done</button>
+      <p> </p>
+
+      <div  id="example_buttons" class="classify">
+      <p> Now, considering the sentence with your addition, is this an example of: </p>
+	      <form>
+      	<input type="button" value="Opportunity Freedom" id="opportunity" name="response" onclick="set_classification('opportunity')">
+      	<input type="button" value="Obstacle Freedom" id="obstacle" name="response" onclick="set_classification('obstacle')">
+      	<input type="button" value="Neither" id="neither" name="response" onclick="set_classification('neither')">
+	<input type="button" value="Both" id="both" name="response" onclick="set_classification('both')">
+
+	      </form>
+	      <p> </p>
+      <button onclick="slides.example.button()" id="next">Continue </button>
+
+	<p> If you need a reminder: </p>
+	      <p> <strong> Opportunity freedom: </strong> the ability to achieve one's goals; having access to the necessary resources and opportunities. </p>
+	<p></p>
+	      <p> <strong> Obstacle freedom: </strong> no obstacles or interference constraints; acting without coercion or oppression. </p>
+	<p></p>
+	  </div>
+</div>
+
+<div class="slide" id="almost">
+
+  <h3>Let's Get Started!</h3>
+  <p>Great job! Now we can actually begin.</p>
+  <p> You will now see 10 pages of sentences that end with the word 'freedom' and perform the same two tasks.</p>
+    <button onclick="exp.go()" class="next">Ready! </button>
+
+</div>
+
+  <div class="slide" id="trial">
+
+    <p><strong>Please type the 2-4 words that most naturally follow the quotation below.</strong></p>
+
+    <div id ="stimulus-sentence">
+    <p > stimulus </p>
+    </div>
+      <textarea id="text_answer" rows="1" cols="25"></textarea><br>
+      <button onclick="show_buttons()">Done</button>
+      <p> </p>
+
+      <div id="buttons" class="classify">
+      <p> Now, considering the sentence with your addition, is this an example of: </p>
+	      <form>
+     	<input type="button" value="Opportunity Freedom" id="opportunity" name="response" onclick="set_classification('opportunity')">
+     	<input type="button" value="Obstacle Freedom" id="obstacle" name="response" onclick="set_classification('obstacle')">
+      	<input type="button" value="Neither" id="neither" name="response" onclick="set_classification('neither')">
+	<input type="button" value="Both" id="both" name="response" onclick="set_classification('both')">
+	      </form>
+	      <p></p>
+      <button onclick="slides.trial.button()" class="next"> Continue </button>
+	      <br>
+	<p> If you need a reminder: </p>
+	<p> <strong> Opportunity freedom:</strong> the ability to achieve one's goals; having access to the necessary resources and opportunities. </p>
+	<p></p>
+	      <p> <strong> Obstacle freedom:</strong> no obstacles or interference constraints; acting without coercion or oppression. </p>
+	<p></p>
+    </div>
+  </div>
+	
+<div class="slide"  id="questionnaire">
+    <div class="long_form">
+      <div class="subj_info_title">Additional information</div>
+      <p class="info">Answering these questions is optional, but will help us understand your answers.</p>
+      <p>Did you read the instructions and do you think you did the experiment correctly?</p>
+      <label><input type="radio"  name="assess" value="No"/>No</label>
+      <label><input type="radio"  name="assess" value="Yes"/>Yes</label>
+      <label><input type="radio"  name="assess" value="Confused"/>I was confused</label>
+
+      <p>Gender:
+        <select id="gender">
+          <label><option value="Other"/>Other</label>
+	  <label><option value="Non-binary"/>Non-binary</label>
+          <label><option value="Male"/>Male</label>
+          <label><option value="Female"/>Female</label>
+        </select>
+      </p>
+
+      <p>Age: <input type="text" id="age"/></p>
+
+      <p>Level Of Education:
+        <select id="education">
+          <label><option value="-1"/></label>
+          <label><option value="0"/>Some High School</label>
+          <label><option value="1"/>Graduated High School</label>
+          <label><option value="2"/>Some College</label>
+          <label><option value="3"/>Graduated College</label>
+          <label><option value="4"/>Hold a higher degree</label>
+        </select>
+      </p>
+        
+        <p>Native Language: <input type="text" id="language"/></p>
+      <label>(the language(s) spoken at home when you were a child)</label>
+
+      <p>If English is your native language, are you a speaker of AMERICAN English (as opposed to e.g. Australian or Indian English)?</p>
+      <label><input type="radio"  name="ame" value="Yes"/>Yes</label>
+      <label><input type="radio"  name="ame" value="No"/>No</label>      
+
+<p>Were there any problems or bugs in the experiment?</p>
+      <textarea id="problems" rows="2" cols="50"></textarea>
+
+<p>What do you think is a fair price for the work you did?</p>
+      <textarea id="fairprice" rows="1" cols="10"></textarea>
+
+ <p>We would be interested in any comments you have about this experiment. Please type them here:</p>
+      <textarea id="comments" rows="3" cols="50"></textarea>
+      <br/>
+      <button onclick="slides.questionnaire.button()">Submit</button>
+    </div>
+  </div>
+	
+  <div id="thanks" class="slide js" >
+    <p  class="big" id="thanks-text">Thank you so much for your time!</p>
+  </div>
+
+</body>
+</html>
